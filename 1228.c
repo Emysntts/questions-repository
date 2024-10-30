@@ -1,40 +1,40 @@
 #include <stdio.h>
 
-int count_min_ultrapassagens(int grid_largada[], int grid_chegada[], int n) {
-    int i, ultrapassagens = 0;
+int count_min_overtakes(int start_grid[], int finish_grid[], int n) {
+    int i, overtakes = 0;
 
-    int pos_chegada[25];
+    int finish_position[25];
     for (i = 0; i < n; i++) {
-        pos_chegada[grid_chegada[i]] = i;
+        finish_position[finish_grid[i]] = i;
     }
 
     for (int i = 0; i < n; i++) {
         for (int j = i + 1; j < n; j++) {
-            if (pos_chegada[grid_largada[i]] > pos_chegada[grid_largada[j]]) {
-                ultrapassagens++;
+            if (finish_position[start_grid[i]] > finish_position[start_grid[j]]) {
+                overtakes++;
             }
         }
     }
 
-    return ultrapassagens;
+    return overtakes;
 }
 
 int main() {
-    int n, resultado;
+    int n, result;
 
     while (scanf("%d", &n) && n != 0) {
-        int grid_largada[25], grid_chegada[25];
+        int start_grid[25], finish_grid[25];
 
         for (int i = 0; i < n; i++) {
-            scanf("%d", &grid_largada[i]);
+            scanf("%d", &start_grid[i]);
         }
 
         for (int i = 0; i < n; i++) {
-            scanf("%d", &grid_chegada[i]);
+            scanf("%d", &finish_grid[i]);
         }
 
-        resultado = count_min_ultrapassagens(grid_largada, grid_chegada, n);
-        printf("%d\n", resultado);
+        result = count_min_overtakes(start_grid, finish_grid, n);
+        printf("%d\n", result);
     }
 
     return 0;

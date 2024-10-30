@@ -2,38 +2,37 @@
 
 int main(void) {
     int N;
-    
+
     scanf("%d", &N);
-    
-    int carneiros[N];
-    
+
+    int sheep[N];
+
     for (int i = 0; i < N; i++) {
-        scanf("%d", &carneiros[i]);
+        scanf("%d", &sheep[i]);
     }
 
-    int atacados = 0; 
+    int attacked = 0; 
     int index = 0;    
 
     while (index >= 0 && index < N) {
-
-        if (carneiros[index] > 0) {
-            carneiros[index]--;
-            atacados++;
+        if (sheep[index] > 0) {
+            sheep[index]--;
+            attacked++;
         }
         
-        if (carneiros[index] % 2 == 0) {
+        if (sheep[index] % 2 == 0) {
             index--; 
         } else {
             index++; 
         }
     }
     
-    int carneiros_restantes = 0;
+    int remaining_sheep = 0;
     for (int i = 0; i < N; i++) {
-        carneiros_restantes += carneiros[i];
+        remaining_sheep += sheep[i];
     }
     
-    printf("%d %d\n", atacados, carneiros_restantes);
+    printf("%d %d\n", attacked, remaining_sheep);
     
     return 0;
 }

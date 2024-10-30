@@ -18,7 +18,7 @@ int main(void){
             ar_ordenado[i] = ar[i];
         }
 
-        for (i = 0; i < M - 1; i++) { //para ordenar o array
+        for (i = 0; i < M - 1; i++) { 
             for (j = 0; j < M - i - 1; j++) {
                 if (ar[j] > ar[j + 1]) {
                     aux = ar[j];
